@@ -1,19 +1,9 @@
 #! /usr/bin/env node
 
 const program = require('commander');
-const test = require('../lib/test');
-const export_transactions = require('../lib/export_transactions');
+const ExportTransactions = require('../lib/export_transactions');
 const HexTransactionFinder = require('../lib/HexTransactionFinder');
-
-program
-    .command('test') // sub-command name
-    .alias('t') // alternative sub-command is `al`
-    .description('test') // command description
-
-    // function to execute when command is uses
-    .action(function () {
-        test();
-    });
+const ExportTransactionsFromToAddress = require('../lib/export_transactions_from_to_address');
 
 program
     .command('export_transactions') // sub-command name
@@ -24,11 +14,35 @@ program
     .action(function () {
         //const start_block = 9041184;
         const start_block = 9000000;
-        const number_blocks_to_process = 10000;
+        const number_blocks_to_process = 4000000;
         const end_block = start_block + number_blocks_to_process;
-        const batch_size = 3000;
-        export_transactions(start_block, end_block, batch_size);
+        const batch_size = 500;
+
+        let exportTransactions = new ExportTransactions();
+        exportTransactions.export(start_block, end_block, batch_size);
+
+        console.log('Complete bla');
     });
+
+program
+    .command('export_transactions_from_to_address') // sub-command name
+    .alias('e') // alternative sub-command is `al`
+    .description('export transactions from/to address') // command description
+
+    // function to execute when command is uses
+    .action(function () {
+        //const start_block = 9041184;
+        const start_block = 9000000;
+        const number_blocks_to_process = 4000000;
+        const end_block = start_block + number_blocks_to_process;
+        const batch_size = 500;
+
+        let exportTransactionsFromToAddress = new ExportTransactionsFromToAddress();
+        exportTransactionsFromToAddress.export(start_block, end_block);
+
+        console.log('Complete bla');
+    });
+    
 
 program
     .command('find_hex_transactions') // sub-command name

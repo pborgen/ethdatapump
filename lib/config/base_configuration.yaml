@@ -1,2 +1,7 @@
-web3Url: https://mainnet.infura.io/v3/6a528c17b68a40b5bc84190aabb81c19
-export_directory: /mnt/crypto/export
+connection:
+  web3Url: 'https://mainnet.infura.io/v3/6a528c17b68a40b5bc84190aabb81c19'
+  is_ipc_connection: true
+  ipc_full_path: '/mnt/crypto/geth.ipc'
+performance:
+  batch_size: 500
+export_directory: '/mnt/crypto/export'
