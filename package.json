@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apache-arrow": "^6.0.1",
     "commander": "^8.3.0",
-    "csv-parse": "^5.0.3",
+    "csv-parse": "^5.0.4",
+    "csv-reader": "^1.0.8",
     "csv-writer": "^1.6.0",
     "js-yaml": "^4.1.0",
     "parquetjs": "^0.11.2",

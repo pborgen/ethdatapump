@@ -3,5 +3,5 @@ connection:
   is_ipc_connection: true
   ipc_full_path: '/mnt/crypto/geth.ipc'
 performance:
-  batch_size: 500
+  batch_size: 1000
 export_directory: '/mnt/crypto/export'
