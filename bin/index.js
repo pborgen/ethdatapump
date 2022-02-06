@@ -1,10 +1,14 @@
 #! /usr/bin/env node
 
 const program = require('commander');
-const ExportTransactions = require('../lib/export_transactions');
+const TransactionsExporter = require('../lib/exporter/TransactionsExporter');
 const HexTransactionFinder = require('../lib/HexTransactionFinder');
-const ExportTransactionsFromToAddress = require('../lib/export_transactions_from_to_address');
+const ExportTransactionsFromToAddress = require('../lib/ExportTransactionsFromToAddress');
 const GetTransaction = require('../lib/GetTransaction');
+const Tracker = require('../lib/Tracker');
+const TrackerExportTransactions = require('../lib/TrackerExportTransactions');
+
+const Web3ConnectionCreator = require('../lib/Web3ConnectionCreator');
 
 program
     .command('export_transactions') // sub-command name
@@ -13,14 +17,9 @@ program
 
     // function to execute when command is uses
     .action(function () {
-        //const start_block = 9041184;
-        const start_block = 9000000;
-        const number_blocks_to_process = 4000000;
-        const end_block = start_block + number_blocks_to_process;
-        const batch_size = 500;
+        let transactionsExporter = new TransactionsExporter();
 
-        let exportTransactions = new ExportTransactions();
-        exportTransactions.export(start_block, end_block, batch_size);
+        transactionsExporter.export();
 
         console.log('Complete bla');
     });
@@ -62,6 +61,19 @@ program
     .action(function () {
         HexTransactionFinder('/mnt/crypto/block_number_with_transactions.js');
     });
+
+program
+    .command('testtrackeryaml') // sub-command name
+    .description('testtrackeryaml') // command description
+
+    // function to execute when command is uses
+    .action(function () {
+        let tracker = new Tracker();
+        tracker.updateExportTransactionsTracker(11, 22);
+
+        console.log('Complete bla');
+    });
+
 
 
 // allow commander to parse `process.argv`

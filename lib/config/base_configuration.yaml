@@ -3,5 +3,6 @@ connection:
   is_ipc_connection: true
   ipc_full_path: '/mnt/crypto/geth.ipc'
 performance:
-  batch_size: 1000
+  web3_batch_size: 500
+  csv_row_max_count: 2000
 export_directory: '/mnt/crypto/export'
