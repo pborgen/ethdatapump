@@ -6,7 +6,7 @@ const HexTransactionFinder = require('../lib/HexTransactionFinder');
 const ExportTransactionsFromToAddress = require('../lib/ExportTransactionsFromToAddress');
 const GetTransaction = require('../lib/GetTransaction');
 const Tracker = require('../lib/Tracker');
-const TrackerExportTransactions = require('../lib/TrackerExportTransactions');
+const TransactionsExporterToFrom = require('../lib/exporter/TransactionsExporterToFrom');
 
 const Web3ConnectionCreator = require('../lib/Web3ConnectionCreator');
 
@@ -34,8 +34,9 @@ program
         const base_path = '/home/paul/dev';
         
         const block_number_with_transactions_full_path = '';
-        let exportTransactionsFromToAddress = new ExportTransactionsFromToAddress();
-        exportTransactionsFromToAddress.export(base_path + '/test.csv');
+        let transactionsExporterToFrom = new TransactionsExporterToFrom();
+        transactionsExporterToFrom.export();
+
 
         console.log('Complete bla');
     });
