@@ -3,12 +3,9 @@
 const program = require('commander');
 const TransactionsExporter = require('../lib/exporter/TransactionsExporter');
 const HexTransactionFinder = require('../lib/HexTransactionFinder');
-const ExportTransactionsFromToAddress = require('../lib/ExportTransactionsFromToAddress');
 const GetTransaction = require('../lib/GetTransaction');
 const Tracker = require('../lib/Tracker');
 const TransactionsExporterToFrom = require('../lib/exporter/TransactionsExporterToFrom');
-
-const Web3ConnectionCreator = require('../lib/Web3ConnectionCreator');
 
 program
     .command('export_transactions') // sub-command name
@@ -17,11 +14,10 @@ program
 
     // function to execute when command is uses
     .action(function () {
+        console.log('About to run TransactionsExporter');
         let transactionsExporter = new TransactionsExporter();
 
         transactionsExporter.export();
-
-        console.log('Complete bla');
     });
 
 program
@@ -31,14 +27,9 @@ program
 
     // function to execute when command is uses
     .action(function () {
-        const base_path = '/home/paul/dev';
-        
-        const block_number_with_transactions_full_path = '';
+        console.log('About to run TransactionsExporterToFrom');
         let transactionsExporterToFrom = new TransactionsExporterToFrom();
         transactionsExporterToFrom.export();
-
-
-        console.log('Complete bla');
     });
 
 program
@@ -50,8 +41,6 @@ program
     .action(function () {
         let getTransaction = new GetTransaction();
         getTransaction.export('0xf449665bddefcaf3f2bebe7aa54b93cb5b3a30c3b4c04d498bdcf8b2edca4bdf');
-
-        console.log('Complete bla');
     });
 
 program
@@ -71,11 +60,10 @@ program
     .action(function () {
         let tracker = new Tracker();
         tracker.updateExportTransactionsTracker(11, 22);
-
-        console.log('Complete bla');
     });
 
 
 
 // allow commander to parse `process.argv`
+console.log('Arguments passed in: ' + process.argv)
 program.parse(process.argv);

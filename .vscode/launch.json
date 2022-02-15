@@ -13,7 +13,10 @@
                 "<node_internals>/**"
             ],
             "args": ["export_transactions_from_to_address"],
-            "program": "${workspaceFolder}/bin/index.js"
+            "program": "${workspaceFolder}/bin/index.js",
+            "env": {
+                "IS_DOCKER":"true"
+            },
         }
     ]
 }
