@@ -1,12 +1,12 @@
 {
   "name": "ethdatapump",
   "version": "1.0.0",
-  "description": "",
+  "description": "Extract data from a geth server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "hmmmm",
   "license": "ISC",
   "dependencies": {
     "apache-arrow": "^6.0.1",
@@ -16,7 +16,11 @@
     "csv-writer": "^1.6.0",
     "js-yaml": "^4.1.0",
     "parquetjs": "^0.11.2",
+    "proper-lockfile": "^4.1.2",
     "web3": "^1.6.1"
+  },
+  "repository": {
+    "private": true
   },
   "bin": {
     "tran": "./bin/index.js"

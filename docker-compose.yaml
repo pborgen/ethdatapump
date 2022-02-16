@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  nodejsOne:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      image: latest
+      container_name: latest
+      entrypoint: ["node", "./bin/index.js", "export_transactions_from_to_address"]
+      environment:
+        IS_DOCKER: "true"
+      volumes:
+      - type: bind
+        source: /mnt/crypto
+        target: /mnt/crypto
