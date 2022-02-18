@@ -2,6 +2,8 @@ connection:
   web3Url: 'https://mainnet.infura.io/v3/6a528c17b68a40b5bc84190aabb81c19'
   is_ipc_connection: true
   ipc_full_path: '/mnt/crypto/geth.ipc'
+  data_directory: '/mnt/crypto'
+  geth_full_path: '/home/paul/dev/code/go-pulse/build/bin/geth'
 performance:
   export_transactions:
     web3_batch_size: 500
@@ -10,5 +12,6 @@ performance:
     web3_batch_size: 20
     csv_row_max_count: 100
 export_directory: '/mnt/crypto/export/prod'
+lock_directory: '/mnt/crypto/export/prod/lock'
 csv_writer:
   number_rows_to_cache_before_writing_to_disk: 5000

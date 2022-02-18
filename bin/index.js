@@ -52,15 +52,6 @@ program
         HexTransactionFinder('/mnt/crypto/block_number_with_transactions.js');
     });
 
-program
-    .command('testtrackeryaml') // sub-command name
-    .description('testtrackeryaml') // command description
-
-    // function to execute when command is uses
-    .action(function () {
-        let tracker = new Tracker();
-        tracker.updateExportTransactionsTracker(11, 22);
-    });
 
 
 

@@ -1,6 +1,5 @@
 ExportTransactions:
-  StartBlockNumber: 13761010
-  EndBlockNumber: 13761010
+  LastBlockProcesses: 13761010
 ExportTransactionsToFrom:
   StartBlockNumber: 11054011
   EndBlockNumber: 11054011
