@@ -4,6 +4,10 @@ connection:
   ipc_full_path: '/mnt/crypto/geth.ipc'
   data_directory: '/mnt/crypto'
   geth_full_path: '/home/paul/dev/code/go-pulse/build/bin/geth'
+mongoDb:
+  uri: 'mongodb://localhost:27017'
+  dbName: 'eth'
+  
 performance:
   export_transactions:
     web3_batch_size: 500

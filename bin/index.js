@@ -8,6 +8,7 @@ const TransactionsExporterToFrom = require('../lib/exporter/TransactionsExporter
 const StateCleanUp = require('../lib/helper/StateCleanUp');
 const Web3Helper = require('../lib/helper/Web3Helper');
 const Helper = require('../lib/helper/Helper');
+const Mongo = require('../lib/db/Mongo');
 
 program
     .command('clean_state') // sub-command name
@@ -55,17 +56,20 @@ program
     });
 
 program
-    .command('ssh') // sub-command name
-    .description('ssh') // command description
+    .command('mongo') // sub-command name
+    .description('mongo') // command description
 
     // function to execute when command is uses
     .action(function () {
-        let web3Helper = new Web3Helper();
-        let hmmm = web3Helper.latestBlockNumber();
+        let mongo = new Mongo();
 
-        while(true) {
-            new Helper().sleep(10000)
-        }
+       
+
+        mongo.insertCsv(
+            '/home/paul/block_number_with_transactions_from_to_file_start_block_11929010_end_block_11945509.csv',
+            ['block_number','transaction_hash','from','to'],
+            'fromTo'
+        );
     });
 
 program
