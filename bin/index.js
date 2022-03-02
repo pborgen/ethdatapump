@@ -1,14 +1,17 @@
 #! /usr/bin/env node
 
 const program = require('commander');
-const TransactionsExporter = require('../lib/exporter/TransactionsExporter');
-const HexTransactionFinder = require('../lib/HexTransactionFinder');
 const GetTransaction = require('../lib/GetTransaction');
 const TransactionsExporterToFrom = require('../lib/exporter/TransactionsExporterToFrom');
+const TransactionsExporter = require('../lib/exporter/TransactionsExporter');
+
+const HexTransactionFinder = require('../lib/HexTransactionFinder');
+
+
 const StateCleanUp = require('../lib/helper/StateCleanUp');
-const Web3Helper = require('../lib/helper/Web3Helper');
-const Helper = require('../lib/helper/Helper');
 const Mongo = require('../lib/db/Mongo');
+const MongoSetup = require('../lib/db/MongoSetup');
+const MongotransactionCollection = require('../lib/db/MongoTransactionCollection');
 
 program
     .command('clean_state') // sub-command name
@@ -19,6 +22,17 @@ program
         console.log('About to Clean the state');
         let stateCleanUp = new StateCleanUp();
         stateCleanUp.clean();
+    });
+
+program
+    .command('mongo_setup') // sub-command name
+    .description('mongodb setup') // command description
+
+    // function to execute when command is uses
+    .action(function () {
+        console.log('Setting up Mongo DB');
+
+        new MongoSetup().setup();
     });
 
 program
@@ -41,7 +55,6 @@ program
 
 program
     .command('export_transactions_from_to_address') // sub-command name
-    .alias('eft') 
     .description('export transactions from/to address') // command description
 
     // function to execute when command is uses
@@ -50,26 +63,8 @@ program
         let stateCleanUp = new StateCleanUp();
         stateCleanUp.blockUntillClean();
         
-        
         let transactionsExporterToFrom = new TransactionsExporterToFrom();
         transactionsExporterToFrom.export();
-    });
-
-program
-    .command('mongo') // sub-command name
-    .description('mongo') // command description
-
-    // function to execute when command is uses
-    .action(function () {
-        let mongo = new Mongo();
-
-       
-
-        mongo.insertCsv(
-            '/home/paul/block_number_with_transactions_from_to_file_start_block_11929010_end_block_11945509.csv',
-            ['block_number','transaction_hash','from','to'],
-            'fromTo'
-        );
     });
 
 program

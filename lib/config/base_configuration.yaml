@@ -11,10 +11,11 @@ mongoDb:
 performance:
   export_transactions:
     web3_batch_size: 500
-    csv_row_max_count: 2000000
+    number_objects_to_write_to_disk_at_a_time: 2000000
   export_transactions_from_to:
     web3_batch_size: 20
-    csv_row_max_count: 100
+    number_objects_to_write_to_disk_at_a_time: 100
+    number_of_blocks_to_process_at_a_time: 10
 export_directory: '/mnt/crypto/export/prod'
 lock_directory: '/mnt/crypto/export/prod/lock'
 csv_writer:
