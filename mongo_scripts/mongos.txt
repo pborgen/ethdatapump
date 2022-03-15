@@ -1,3 +1,0 @@
-sudo mkdir /mnt/crypto/mongodb/mongos
-sudo chmod 777 /mnt/crypto/mongodb/mongos
-mongos --configdb conf/192.168.1.32:27011 --logpath /mnt/crypto/mongodb/mongos/log.log
