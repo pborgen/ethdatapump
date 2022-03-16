@@ -5,7 +5,7 @@ connection:
   data_directory: '/mnt/crypto'
   geth_full_path: '/home/paul/dev/code/go-pulse/build/bin/geth'
 mongoDb:
-  uri: 'mongodb://localhost:27017'
+  uri: 'mongodb://192.168.1.32:27020'
   dbName: 'eth'
   
 performance:

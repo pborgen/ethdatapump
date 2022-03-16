@@ -12,7 +12,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "args": ["export_transactions_from_to_address"],
+            "args": ["mongo_setup"],
             "program": "${workspaceFolder}/bin/index.js",
             "env": {
                 "IS_DOCKER":"true"
