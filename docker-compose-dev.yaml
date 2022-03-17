@@ -2,8 +2,6 @@ version: '2.1'
 services:
 
   exportTransactions:
-    depends_on:
-      - "cleanup"
     network_mode: host
     privileged: true
     build:
