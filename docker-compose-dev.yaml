@@ -1,0 +1,23 @@
+version: '2.1'
+services:
+
+  exportTransactions:
+    depends_on:
+      - "cleanup"
+    network_mode: host
+    privileged: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: latest
+    entrypoint: ["node", "./bin/index.js", "export_transactions"]
+    environment:
+      IS_DOCKER: "true"
+      NODE_OPTIONS: --max-old-space-size=11264
+    volumes:
+    - type: bind
+      source: /mnt/crypto
+      target: /mnt/crypto
+    scale: 0
+
+
