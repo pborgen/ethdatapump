@@ -11,3 +11,5 @@ mongo --host 192.168.1.32 --port 27011 --eval 'rs.initiate({_id: "conf", members
 sleep 5
 mongo --host 192.168.1.32 --port 27011 --eval "printjson(db.serverStatus())" &
 mongo --host 192.168.1.32 --port 27011 --eval "printjson(rs.status())" &
+
+exit

@@ -6,3 +6,4 @@ mongos --configdb conf/192.168.1.32:27011 --port 27020 --bind_ip 192.168.1.32 --
 sleep 75
 
 db.adminCommand({addshard: "shard1/192.168.1.32:27001"})
+db.adminCommand({addshard: "shard2/192.168.1.31:27002"})

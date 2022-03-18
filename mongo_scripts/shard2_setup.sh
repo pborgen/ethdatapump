@@ -14,4 +14,4 @@ sleep 5
 mongo --host 192.168.1.31 --port 27002 --eval "printjson(db.serverStatus())" &
 mongo --host 192.168.1.31 --port 27002 --eval "printjson(rs.status())" &
 
-exit 0
+exit
