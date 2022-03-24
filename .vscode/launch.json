@@ -4,16 +4,29 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "Docker: Attach to Node",
+            "type": "node",
+            "request": "attach",
+            "restart": true,
+            "port": 9229,
+            "address": "localhost",
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/usr/src/app",
+            "protocol": "inspector"
+      
+          },
     
         {
+           
             "type": "pwa-node",
             "request": "launch",
             "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "args": ["export_transactions"],
-            "program": "${workspaceFolder}/bin/index.js",
+            "args": ["uniswap"],
+            "program": "${workspaceFolder}/src/index.js",
             "env": {
                 "IS_DOCKER":"true"
             },

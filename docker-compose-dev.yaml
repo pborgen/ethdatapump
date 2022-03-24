@@ -1,6 +1,5 @@
 version: '2.1'
 services:
-
   exportTransactions:
     network_mode: host
     privileged: true
@@ -14,8 +13,14 @@ services:
       NODE_OPTIONS: --max-old-space-size=11264
     volumes:
     - type: bind
+      source: /mnt/cryptoeth
+      target: /mnt/cryptoeth
+    - type: bind
       source: /mnt/crypto
       target: /mnt/crypto
+    ports:
+      - "30303:30303"
+      - "9229:9229"
     scale: 0
 
 
